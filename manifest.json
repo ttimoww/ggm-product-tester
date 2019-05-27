@@ -1,7 +1,7 @@
 {
-    "name": "Neatlynamed Product Test",
+    "name": "Neatlynamed product tester",
     "version": "1.0",
-    "description": "desc",
+    "description": "May 2019",
     "manifest_version": 2,
     "content_scripts": [{
         "matches": ["*://*.live-shop.neatlynamed.com/*"],
