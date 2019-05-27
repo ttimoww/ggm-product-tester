@@ -5,6 +5,16 @@
     "manifest_version": 2,
     "content_scripts": [{
         "matches": ["*://*.live-shop.neatlynamed.com/*"],
-        "js": ["js/jquery-3.4.1.min.js", "js/Product.js", "js/index.js"]
-    }]
+        "js": ["js/jquery-3.4.1.min.js", "js/productpage.js"],
+        "run_at": "document_end"
+    }],
+    "browser_action": {
+        "default_title": "Neatlynamed Product Tester",
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "16" : "icon.png",
+        "48" : "icon.png",
+        "128" : "icon.png"
+    }
 }
