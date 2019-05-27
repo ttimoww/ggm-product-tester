@@ -1,0 +1,10 @@
+{
+    "name": "Neatlynamed Product Test",
+    "version": "1.0",
+    "description": "desc",
+    "manifest_version": 2,
+    "content_scripts": [{
+        "matches": ["*://*.live-shop.neatlynamed.com/*"],
+        "js": ["js/jquery-3.4.1.min.js", "js/Product.js", "js/index.js"]
+    }]
+}
