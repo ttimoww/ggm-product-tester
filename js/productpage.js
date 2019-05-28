@@ -82,12 +82,36 @@ closeWindow = function(){
     }, 500)
 }
 
+generateRandomString = function(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }
+ 
+ setText = function(){
+    let cacheStorage = JSON.parse(localStorage.getItem('mage-cache-storage'))
+    for(item in cacheStorage.cart.items){
+        lines = cacheStorage.cart.items[item].gen_data[0].lines
+        for (line in lines){
+            lines[line].text = generateRandomString(6);
+            console.log(lines[line].text);
+        }   
+    }
+    localStorage.setItem('mage-cache-storage', JSON.stringify(cacheStorage))
+    console.log(JSON.parse(localStorage.getItem('mage-cache-storage')))
+ }
 $(document).ready(function () {
-    selectFormat();
-    selectColor();
-    fillLines();
-    selectFont();
-    selectIcon();
-    //addToCart();
+    // selectFormat();
+    // selectColor();
+    // fillLines();
+    // selectFont();
+    // selectIcon();
+    // //addToCart();
     //closeWindow();
+    setText();
+    
 });
