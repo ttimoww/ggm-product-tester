@@ -14,22 +14,44 @@ $(document).ready(function () {
         for (let i = 0; i < data.products.length; i++) {
             const $container = $('<div>');
             const $input = $('<input>');
-            $($input).attr('type', 'checkbox');
-            $($input).attr('value', data.products[i].id);
+            $($input).addClass('qty');
+            $($input).attr('type', 'number');
+            $($input).attr('min', '0');
+            $($input).attr('max', '10');
             $($input).attr('href', data.products[i].url);
             $($container).append($input);
             $($container).append(data.products[i].name);
             $('#form').append($container);
         }
+        const $container = $('<div>');
+        const $input = $('<input>');
+        $($input).attr('id', 'checkall');
+        $($input).attr('type', 'checkbox');
+        $($container).append($input);
+        $container.append('Test all products');
+        $('#form').append($container);
     });
 
 
     $('#start').click(function(e){
         e.preventDefault();
-
-        const products = $('#form input:checked');
-        for (let i = 0; i < products.length; i++) {
-            window.open($(products[i]).attr('href'), '', 'height=500, width=500');          
-        }    
+        
+        
+        if ($('#checkall').prop('checked')) {
+            for (let i = 0; i < data.products.length; i++) {
+                window.open(data.products[i].url, '', 'height=500, width=500');                                  
+            }
+        }else{
+            // Open popup for every product with qty > 0
+            const products = $('.qty'); 
+            for (let i = 0; i < products.length; i++) {
+                if($(products[i]).val() !== ''){    
+                    const val = parseInt($(products[i]).val());  
+                    for (let i = 0; i < val; i++) {
+                        window.open($(products[i]).attr('href'), '', 'height=500, width=500');                  
+                    }
+                }
+            } 
+        }
     });
 });
