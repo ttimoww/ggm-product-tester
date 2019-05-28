@@ -27,11 +27,12 @@ fillLines = function(){
     if (input.length !== 0){
         for (let i = 0; i < input.length; i++) {
             if(!$(input[i]).is(':hidden')){
-                $(input[i]).val('jkwlaejfkl');
-                const keyVal = 81; 
-                $(input[i]).trigger({
-                    type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal
-                });
+                $(input[i]).val('random lines');
+                $(input[i]).trigger("keydown");
+                $(input[i]).on("click mousedown mouseup focus blur keydown change",function(e){
+                    console.log(e);
+               });
+               console.log(input[i]);
             }
         }
     }
@@ -87,6 +88,6 @@ $(document).ready(function () {
     fillLines();
     selectFont();
     selectIcon();
-    addToCart();
-    closeWindow();
+    //addToCart();
+    //closeWindow();
 });

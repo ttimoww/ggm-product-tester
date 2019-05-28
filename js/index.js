@@ -1,34 +1,35 @@
-const data = {
-    "products" : [
-        {
-            "name": "Mini name labels",
-            "url": "https://live-shop.neatlynamed.com/mini-name-labels.html#redirect"
-        },
-        {
-            "name": "Small name labels",
-            "url": "https://live-shop.neatlynamed.com/small-name-labels.html#redirect"
-        },
-        {
-            "name": "Glittery name labels",
-            "url": "https://live-shop.neatlynamed.com/glittery-name-labels.html#redirect"
-        }
-    ]
-}
+let data;
+fetch(chrome.extension.getURL('/products.json'))
+    .then((resp) => resp.json())
+    .then((json) => data = json);
 
 
 $(document).ready(function () {
-    $('#start').click(function(){
+    /**
+     * Get all products and add them to the form in the DOM
+     */
+    $('#get-products').click(function (e) { 
+        $('#form').empty();
+        e.preventDefault();
         for (let i = 0; i < data.products.length; i++) {
-            window.open(data.products[i].url, '', 'height=500, width=500');
-
-            // Print to UI
-            const $p = $('<p>').html(data.products[i].name);
-            console.log($p);
-            $('.products').append($p);            
+            const $container = $('<div>');
+            const $input = $('<input>');
+            $($input).attr('type', 'checkbox');
+            $($input).attr('value', data.products[i].id);
+            $($input).attr('href', data.products[i].url);
+            $($container).append($input);
+            $($container).append(data.products[i].name);
+            $('#form').append($container);
         }
+    });
 
-        
-    })
 
-    
+    $('#start').click(function(e){
+        e.preventDefault();
+
+        const products = $('#form input:checked');
+        for (let i = 0; i < products.length; i++) {
+            window.open($(products[i]).attr('href'), '', 'height=500, width=500');          
+        }    
+    });
 });

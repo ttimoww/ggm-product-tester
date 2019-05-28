@@ -1,0 +1,34 @@
+{
+    "products" : [
+        {
+            "id": 1,
+            "name": "Mini name labels",
+            "url": "https://live-shop.neatlynamed.com/mini-name-labels.html#redirect"
+        },
+        {
+            "id": 2,
+            "name": "Small name labels",
+            "url": "https://live-shop.neatlynamed.com/small-name-labels.html#redirect"
+        },
+        {
+            "id": 3,
+            "name": "Glittery name labels",
+            "url": "https://live-shop.neatlynamed.com/glittery-name-labels.html#redirect"
+        },
+        {
+            "id": 4,
+            "name": "SOS Personalised Wristband",
+            "url": "https://live-shop.neatlynamed.com/sos-personalised-wristband.html#redirect"
+        },
+        {
+            "id": 5,
+            "name": "Allergy Labels",
+            "url": "https://live-shop.neatlynamed.com/allergy-labels.html#redirect"
+        },
+        {
+            "id": 6,
+            "name": "Clothing Stamp",
+            "url": "https://live-shop.neatlynamed.com/clothing-stamp.html#redirect"
+        }
+    ]
+}
