@@ -21,6 +21,7 @@ selectColor = function () {
     if (options.length !== 0) {
         const randomNumber = this.getRandomNumber(options.length);
         options[randomNumber - 1].click();
+        console.log(options[randomNumber - 1]);
     }
 }
 
@@ -94,11 +95,17 @@ generateRandomString = function (length) {
 
 
 $(document).ready(function () {
-    //selectFormat();
-    //selectColor();
-    fillLines();
-    //selectFont();
-    //selectIcon();
-    //addToCart();
-    //closeWindow();
+    x = setInterval(() => {
+        if($('body').attr('aria-busy') === 'false'){
+            //selectFormat();
+            selectColor();
+            fillLines();
+            selectFont();
+            selectIcon();
+            //addToCart();
+            //closeWindow();
+
+            clearInterval(x);
+        }
+    }, 200);
 });
