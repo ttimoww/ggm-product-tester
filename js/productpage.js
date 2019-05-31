@@ -67,8 +67,9 @@ addToCart = function () {
         const randomNumber = this.getRandomNumber(options.length);
         options[randomNumber - 1].click();
     }else{
-        $('.add-to-cart').trigger('click');
+        $('.add-to-cart').trigger('click'); 
     }
+    clearInterval(y);
 }
 
 closeWindow = function () {
@@ -91,7 +92,7 @@ generateRandomString = function (length) {
 }
 
 
-$(document).ready(function () {
+$(document).ready(function () { 
     x = setInterval(() => {
         if($('body').attr('aria-busy') === 'false'){
             // selectFormat();
@@ -104,4 +105,8 @@ $(document).ready(function () {
             clearInterval(x);
         }
     }, 200);
+
+    y = setInterval(() => {
+        location.reload();
+    }, 25000);
 });

@@ -36,7 +36,6 @@ $(document).ready(function () {
     $('#start').click(function(e){
         e.preventDefault();
         
-        
         if ($('#checkall').prop('checked')) {
             for (let i = 0; i < data.products.length; i++) {
                 window.open(data.products[i].url, '', 'height=500, width=500');                                  
@@ -45,11 +44,14 @@ $(document).ready(function () {
             // Open popup for every product with qty > 0
             const products = $('.qty'); 
             for (let i = 0; i < products.length; i++) {
-                if($(products[i]).val() !== ''){   
+                if($(products[i]).val() !== ''){
+                    
+                    
+                    
                     console.log($(products[i]).attr('href'));
                     const val = parseInt($(products[i]).val());  
                     for (let j = 0; j < val; j++) {
-                        window.open($(products[i]).attr('href'), '', 'height=500, width=500');                  
+                        window.open($(products[i]).attr('href'), '', 'height=500, width=500')                 
                     }
                 }
             } 
