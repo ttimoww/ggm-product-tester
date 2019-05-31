@@ -43,7 +43,6 @@ fillLines = function () {
             console.log(`Selected ${size[i].children[randomNumber - 1].value}`);
         }
     }
-
 }
 
 selectFont = function () {
