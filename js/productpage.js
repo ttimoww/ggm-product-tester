@@ -26,27 +26,23 @@ selectColor = function () {
 }
 
 fillLines = function () {
-    const input = $('.linesContainer input.cmpt');
+    const input = $('.linesContainer input.cmpt:visible');
     if (input.length !== 0) {
         for (let i = 0; i < input.length; i++) {
-            if (!$(input[i]).is(':hidden')) {
-                $(input[i]).val(generateRandomString(8));
-                $(input[i])[0].dispatchEvent(new Event("input"));
-            }
+            $(input[i]).val(generateRandomString(8));
+            $(input[i])[0].dispatchEvent(new Event("input"));
         }
     }
 
-    const size = $('.add-style-select select');
-        if (size.length !== 0) {
-            for (let i = 0; i < size.length; i++) {
-                if (!$(size[i]).is(':hidden')) {
-                    const randomNumber = this.getRandomNumber(size.length);
-                    size[i].value = size[i].children[randomNumber - 1].value
-                    $(size[i])[0].dispatchEvent(new Event("change"));
-                    console.log(`Selected ${size[i].children[randomNumber - 1].value}`);
-                }
-            }
+    const size = $('.add-style-select select:visible');
+    if (size.length !== 0) {
+        for (let i = 0; i < size.length; i++) {
+            const randomNumber = this.getRandomNumber(size.length);
+            size[i].value = size[i].children[randomNumber - 1].value
+            $(size[i])[0].dispatchEvent(new Event("change"));
+            console.log(`Selected ${size[i].children[randomNumber - 1].value}`);
         }
+    }
 
 }
 
@@ -97,14 +93,13 @@ generateRandomString = function (length) {
 $(document).ready(function () {
     x = setInterval(() => {
         if($('body').attr('aria-busy') === 'false'){
-            //selectFormat();
+            // selectFormat();
             selectColor();
             fillLines();
             selectFont();
             selectIcon();
             //addToCart();
             //closeWindow();
-
             clearInterval(x);
         }
     }, 200);
