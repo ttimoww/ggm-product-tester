@@ -66,6 +66,8 @@ addToCart = function () {
     if (options.length !== 0) {
         const randomNumber = this.getRandomNumber(options.length);
         options[randomNumber - 1].click();
+    }else{
+        $('.add-to-cart').trigger('click');
     }
 }
 
@@ -97,8 +99,8 @@ $(document).ready(function () {
             fillLines();
             selectFont();
             selectIcon();
-            //addToCart();
-            //closeWindow();
+            addToCart();
+            closeWindow();
             clearInterval(x);
         }
     }, 200);

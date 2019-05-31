@@ -45,9 +45,10 @@ $(document).ready(function () {
             // Open popup for every product with qty > 0
             const products = $('.qty'); 
             for (let i = 0; i < products.length; i++) {
-                if($(products[i]).val() !== ''){    
+                if($(products[i]).val() !== ''){   
+                    console.log($(products[i]).attr('href'));
                     const val = parseInt($(products[i]).val());  
-                    for (let i = 0; i < val; i++) {
+                    for (let j = 0; j < val; j++) {
                         window.open($(products[i]).attr('href'), '', 'height=500, width=500');                  
                     }
                 }
