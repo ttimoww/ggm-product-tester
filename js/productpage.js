@@ -43,6 +43,10 @@ fillLines = function () {
             console.log(`Selected ${size[i].children[randomNumber - 1].value}`);
         }
     }
+
+    setTimeout(() => {
+        addToCart();
+    }, 3000);
 }
 
 selectFont = function () {
@@ -70,6 +74,8 @@ addToCart = function () {
         $('.add-to-cart').trigger('click'); 
     }
     clearInterval(y);
+
+    closeWindow();
 }
 
 closeWindow = function () {
@@ -100,8 +106,6 @@ $(document).ready(function () {
             fillLines();
             selectFont();
             selectIcon();
-            addToCart();
-            closeWindow();
             clearInterval(x);
         }
     }, 200);
